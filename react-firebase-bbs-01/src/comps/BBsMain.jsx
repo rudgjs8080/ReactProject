@@ -14,8 +14,8 @@ function BBsMain() {
           console.log(bbs);
           setBBsData([...bbsData, { ...bbs.data(), id: bbs.id }]);
         });
+        console.log(bbsList);
       });
-    console.log(bbsList);
   };
   useEffect(firebaseFetch, []);
 
