@@ -5,9 +5,9 @@ import BucketMain from './comps/BucketMain'
 function App() {
   return (
     <div className="App">
-      <Header/>
-	  <MainNav/>
-	<section>
+      <header className="App-header"><Header/>
+	  <MainNav/></header>
+	<section className="w3-container w3-margin">
 		<BucketMain/>
 	</section>
 	<Footer/>
