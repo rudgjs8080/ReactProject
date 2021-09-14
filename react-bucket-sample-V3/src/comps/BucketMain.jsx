@@ -7,7 +7,7 @@ import moment from 'moment'
 function BucketMain() {
 	const [bucketList, setBuckList] = useState([]);
 
-	const bucketFetch = useCallback(async() => {
+	const bucketFetch = useCallback(async () => {
 		const res = await fetch('http://localhost:5000/data')
 		const bucketList = await res.json()
 		await setBuckList(bucketList)
@@ -26,6 +26,7 @@ function BucketMain() {
 		}
 		// bucketList를 가져와서 새로운 bucket 추가하기
 		await setBuckList([...bucketList, bucket])
+
 		const fetch_option = {
 			method: "POST",
 			headers: {

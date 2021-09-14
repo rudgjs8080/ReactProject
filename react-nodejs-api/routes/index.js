@@ -24,8 +24,9 @@ router.post('/insert', async(req,res) => {
 	res.json(result)
 })
 
-router.get('/data', (req,res)=>{
-	res.json(bucketList)
+router.get('/data', async(req,res)=>{
+	const result = await BUCKET.find({})
+	res.json(result)
 })
 
 module.exports = router;
