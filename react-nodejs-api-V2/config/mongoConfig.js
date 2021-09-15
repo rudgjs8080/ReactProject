@@ -1,3 +1,0 @@
-
-const USERID = ""
-const PASSWORD = ""

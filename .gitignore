@@ -105,3 +105,4 @@ dist
 
 # Mongo
 mongoConfig.json
+mongoConfig.js
