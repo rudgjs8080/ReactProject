@@ -5,15 +5,19 @@ import uuid from 'react-uuid'
 import moment from 'moment'
 
 function BucketMain() {
+	// 버킷리스트를 담을 배열
 	const [bucketList, setBuckList] = useState([]);
+	// db에 update할 state
+	const [saveBucket, setSaveBucket] = useState({})
 
 	const bucketFetch = useCallback(async () => {
-		const res = await fetch('http://localhost:5000/data')
+		const res = await fetch('http://localhost:4000/api/get')
 		const bucketList = await res.json()
 		await setBuckList(bucketList)
 	}, [])
 	useEffect(bucketFetch, [bucketFetch])
 	
+	// 저장할 데이터를 생성하고
 	const bucket_insert = async(bucket_text) => {
 		const bucket = {
 			b_id: uuid(),
@@ -24,6 +28,7 @@ function BucketMain() {
 			b_end_check: false,
 			b_cancel: false
 		}
+		// 화면에 보여질 리스트에 추가하기
 		// bucketList를 가져와서 새로운 bucket 추가하기
 		await setBuckList([...bucketList, bucket])
 
@@ -34,9 +39,22 @@ function BucketMain() {
 			},
 			body: JSON.stringify(bucket)
 		}
-		await fetch('http://localhost:5000/insert',fetch_option)
+		await fetch('http://localhost:4000/api/bucket',fetch_option)
 		// await bucketFetch()
 	}
+	const putBucket = async() => {
+		console.log(saveBucket)
+		const putFetchOption = {
+			method:"PUT",
+			headers: {"Content-Type" : "application/json"},
+			body: JSON.stringify(saveBucket)
+		}
+		const result = await fetch('http://localhost:4000/api/bucket', putFetchOption)
+		console.log(result.json())
+	}
+	// saveBucket 이 변화가 생기면 
+	// pubBucket 실행?? saveBucket은 fetch로 보낼?
+	useEffect(putBucket, [saveBucket])
 
 	  const flag_change = (id) => {
 		const _bucketList = bucketList.map((bucket) => {
@@ -45,10 +63,9 @@ function BucketMain() {
 		   * 전달받은 id와 같은 항목의 flag를 1 증가시키기 
 		   */
 		  if (bucket.b_id === id) {
-			return {
-			  ...bucket,
-			  b_flag: bucket.b_flag + 1,
-			};
+			  const _temp = {...bucket, b_flag: bucket.b_flag +1}
+			  setSaveBucket(_temp)
+			return _temp
 		  } else {
 			return bucket;
 		  }
@@ -60,7 +77,9 @@ function BucketMain() {
 	  const bucket_update = (id, title) => {
 		  const _bucketList = bucketList.map(bucket => {
 			  if(bucket.b_id === id) {
-				  return {...bucket, b_title: title}
+				  const _temp = {...bucket, b_title:title}
+				  setSaveBucket(_temp)
+				  return _temp
 			  } else {
 				  return bucket
 			  }
@@ -91,12 +110,12 @@ function BucketMain() {
 	  const bucket_complete = (id) => {
 		  const _bucketList = bucketList.map(bucket=> {
 			  if(bucket.b_id === id){
-				  return {
-					  ...bucket,
-					  b_end_date : 
+				  const _temp = {...bucket,
+					b_end_date : 
 					  	bucket.b_end_check || moment().format("YYYY[-]MM[-]DD HH:mm:ss"),
-					  b_end_check : !bucket.b_end_check
-				  }
+					  b_end_check : !bucket.b_end_check}
+				  setSaveBucket(_temp)
+				  return _temp
 			  	} else {
 				  return bucket
 			  }
@@ -106,10 +125,9 @@ function BucketMain() {
 	  const bucket_cancel = (id) => {
 		const _bucketList = bucketList.map(bucket=> {
 			if(bucket.b_id === id){
-				return {
-					...bucket,
-					b_cancel: !bucket.b_cancel
-				}
+				const _temp = {...bucket, b_cancel: !bucket.b_cancel}
+				setSaveBucket(_temp)
+				return _temp
 				} else {
 				return bucket
 			}

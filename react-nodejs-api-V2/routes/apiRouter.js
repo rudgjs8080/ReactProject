@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
 
+const BUCKET = require('../models/bucket')
+
 /**
  * RESTful
  * 클라이언트에서 요청을 할 때 할 일을 프로토콜 method로 분리하기 
@@ -36,52 +38,38 @@ const router = express.Router()
  * 			router.delete('/book/delete')
  */
 
-const dataList = [
-	{
-	b_id: "00001",
-	b_start_date: "2021-09-15",
-	b_title: "Test 연동",
-	b_end_date: "",
-	b_end_check: false,
-	b_cancel: false
-	},
-	{
-	b_id: "00003",
-	b_start_date: "2021-09-15",
-	b_title: "api server 연동",
-	b_end_date: "",
-	b_end_check: false,
-	b_cancel: false
-	}
-
-];
-
 /**
  * POST로 받는 데이터는 주로 form에 담긴 데이터이다
  * API Server에서는 fetch() 통하여 데이터를 전달받을 때도 사용한다
  * request의 body에 담겨서 전달되기 때문에
  * req.body에서 데이터를 추출하면 된다
  */
-router.post('/bucket', (req,res) => {
+router.post('/bucket', async(req,res) => {
 	const body = req.body
-	console.log("데이터 추가하기")
+	const result = await BUCKET.create(body)
+	console.log('데이터 추가하기', result)
 	console.log(body)
-	res.send("끝")
+	res.json({result:"OK"})
 })
 
-router.put('/bucket', (req,res) => {
+router.put('/bucket', async(req,res) => {
 	const body = req.body
+	const doc = await BUCKET.findOne({b_id: body.b_id})
+	await doc.overwrite(body)
+	await doc.save()
 	console.log("데이터 업데이트 하기")
+	console.table(body)
 })
 
-router.get('/get', (req,res) => {
-	console.log('개별 데이터 요청하기')
-	res.json(dataList)
-	// console.log(dataList)
+router.get('/get', async (req,res) => {
+	const buckets = await BUCKET.find({})
+	console.log('전체 리스트 요청하기')
+	res.json(buckets)
 })
 
 router.get('/:id/get', (req,res) => {
-	
+	console.log("개별 데이터 요청하기");
+  	res.json(retData[0]);
 })
 
 router.get('/update/:id/:title',(req,res) =>{

@@ -10,6 +10,7 @@ function BucketInput(props) {
 			 * input에 입력된 bucket text를 전달하기
 			 */
 			props.bucket_insert(bucket)
+			e.target.value = ""
 		}
 	}
 

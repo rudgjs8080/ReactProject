@@ -26,6 +26,7 @@ function BucketItem({args,bucket}) {
 				})
 			} else if (className.includes("b_end_date")){
 				// 완료를 클릭하면 현재 날짜 시간을 표시하여 완료되었음을 나타내기
+				
 				bucket_complete(b_id)
 			}
 		}if(itemTd.tagName === "SPAN" && itemTd.className.includes("b_title")){
