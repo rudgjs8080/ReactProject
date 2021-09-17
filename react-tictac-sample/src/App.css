@@ -57,3 +57,6 @@ button {
   font-size: 60px;
   line-height: 100px;
 }
+.result {
+  cursor: pointer;
+}
