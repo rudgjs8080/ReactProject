@@ -55,6 +55,10 @@ const calcWinner = (squares) => {
   // const 결과 = 원본.filter()
   // 결과의 배열개수 <= 원본보다 작거나 같다
   // filter()의 return이 true 일 때만 결과에 배열을 추가한다
+
+  // 코드에서 비교결과가 true이면 return true 한 것과 같고
+  // 그때 win의 값이 result에 담기게 된다
+  // result는 개수가 없거나 1개인 배열이 된다
   winList.filter((win) => {
     const [c_0, c_1, c_2] = win;
     return (
@@ -63,6 +67,7 @@ const calcWinner = (squares) => {
       squares[c_0] === squares[c_2]
     );
   });
+  return result.length && squares[result[0][0]]
 };
 
 export { RenderSquare, calcWinner };
