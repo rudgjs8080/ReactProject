@@ -4,16 +4,22 @@ import AddressView from "./comps/AddressView";
 import { useState } from "react";
 
 function App() {
-  const [list, setList] = useState([]);
+  const [address, setAddress] = useState({
+    a_id: "",
+    a_name: "",
+    a_address: "",
+    a_number: "",
+    a_age: 0,
+  });
+  const [a_list, setA_list] = useState([]);
 
-  const onClick_insert = (e) => {};
   // console.log("app", list);
+  const args = { address, setAddress, a_list, setA_list };
   return (
     <div className="App">
-      <header className="App-header">
-        <AddressInput list={list} setList={setList} />
-        <AddressView list={list} />
-      </header>
+      <header className="App-header"></header>
+      <AddressInput args={args} />
+      <AddressView a_list={a_list} />
     </div>
   );
 }
