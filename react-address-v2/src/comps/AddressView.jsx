@@ -14,14 +14,7 @@ function AddressView(props) {
             <th>나이</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>{list.name}</td>
-            <td>{list.address}</td>
-            <td>{list.number}</td>
-            <td>{list.age}</td>
-          </tr>
-        </tbody>
+        <tbody></tbody>
       </table>
     </div>
   );
