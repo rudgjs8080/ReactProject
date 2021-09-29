@@ -17,7 +17,9 @@ function App() {
   const args = { address, setAddress, a_list, setA_list };
   return (
     <div className="App">
-      <header className="App-header"></header>
+      <header className="App-header">
+        <h1>UI/UX 과제물</h1>
+      </header>
       <AddressInput args={args} />
       <AddressView a_list={a_list} />
     </div>

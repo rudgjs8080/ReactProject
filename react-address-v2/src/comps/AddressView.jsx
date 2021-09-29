@@ -14,7 +14,7 @@ function AddressView({ a_list }) {
     );
   });
   return (
-    <div>
+    <div className="main_view">
       <table>
         <thead>
           <tr>

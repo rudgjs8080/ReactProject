@@ -1,7 +1,7 @@
 * {
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
+  border: 0;
 }
 .App {
   text-align: center;
@@ -41,38 +41,30 @@
     transform: rotate(360deg);
   }
 }
-.input_box {
+
+div.start {
   width: 100vw;
-  height: 30vh;
+  height: 50vh;
+  background-color: blue;
   display: flex;
-  flex-direction: column;
-  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
 }
-.input_box input {
-  width: 60%;
-  height: 50%;
-  margin: 10px auto;
-  padding: 5px;
-  border: 1px solid #ddd;
-  border-radius: 15px;
+
+div.main {
+  width: 70%;
+  height: 70%;
+  background-color: brown;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.input_box button {
-  display: block;
-  width: 20%;
-  height: 30px;
-  margin: 5px auto;
-  padding: 5px;
-  background-color: #61dafb;
-  border-radius: 15px;
-}
-.input_box button:hover,
-input:hover {
-  box-shadow: 2px 2px 2px #aaa;
-}
-div.main_view {
-  width: 100vw;
-  margin: 0 auto;
-}
-div.main_view table {
-  width: 60%;
+
+div.level_1 {
+  width: 30%;
+  height: 30%;
+  background-color: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
