@@ -41,42 +41,20 @@
     transform: rotate(360deg);
   }
 }
-.input_box {
-  width: 100vw;
-  height: 30vh;
+
+div.main_nav {
+  width: 100%;
+  height: 5vh;
+  background-color: blue;
+  color: white;
+}
+div.main_nav ul {
   display: flex;
-  flex-direction: column;
-  margin: 0 auto;
+  flex-direction: row;
+  list-style: none;
 }
-.input_box input {
-  width: 60%;
-  height: 50%;
-  margin: 10px auto;
+div.main_nav li {
+  margin: 5px;
   padding: 5px;
-  border: 1px solid #ddd;
-  border-radius: 15px;
-}
-.input_box button {
-  display: block;
-  width: 20%;
-  height: 30px;
-  margin: 5px auto;
-  padding: 5px;
-  background-color: #61dafb;
-  border-radius: 15px;
-}
-.input_box button:hover,
-input:hover {
-  box-shadow: 2px 2px 2px #aaa;
-}
-div.main_view {
-  width: 100vw;
-  margin: 0 auto;
-}
-div.main_view table {
-  width: 60%;
-  margin: 0 auto;
-}
-div.main_view tr {
-  border: 1px solid #ddd;
+  text-align: center;
 }
