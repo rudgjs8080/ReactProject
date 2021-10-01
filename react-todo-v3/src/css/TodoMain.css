@@ -1,0 +1,34 @@
+div.main_box {
+  width: 50%;
+  border: 1px solid #ddd;
+  border-bottom: 2px solid cyan;
+  margin: 50px auto;
+}
+div.main_header {
+  height: 10vh;
+  background-color: cyan;
+  margin: auto;
+}
+div.input_box {
+  margin: 10px auto;
+  padding: 10px;
+}
+div.input_box input {
+  border-style: none;
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+}
+div.input_box button {
+  width: 5vw;
+  height: 3vh;
+  border-style: none;
+  border-radius: 15px;
+  background-color: darkorange;
+  margin: 10px;
+}
+div.input_box button:hover {
+  background-color: rgb(84, 231, 207);
+}
+div.list_box {
+  border: 1px solid #ddd;
+}
