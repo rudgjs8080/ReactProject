@@ -1,0 +1,24 @@
+div.login_box {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 30vh;
+  margin-top: 30px;
+}
+div.login_box input,
+button {
+  width: 50%;
+  height: 7vh;
+  margin: 10px auto;
+  padding: 5px;
+}
+div.login_box button {
+  background-color: chartreuse;
+  font-size: 20px;
+  border-style: none;
+}
+div.login_box button:hover {
+  background-color: darkgreen;
+  cursor: pointer;
+  box-shadow: 2px 2px 2px #ddd;
+}

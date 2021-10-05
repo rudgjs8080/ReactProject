@@ -4,7 +4,7 @@ function AddressView({ a_list }) {
   // console.log("view", list);
   const listBody = a_list.map((address, index) => {
     return (
-      <tr>
+      <tr className="tr_body">
         <td>{index + 1}</td>
         <td>{address.a_name}</td>
         <td>{address.a_address}</td>
@@ -17,7 +17,7 @@ function AddressView({ a_list }) {
     <div className="main_view">
       <table>
         <thead>
-          <tr>
+          <tr className="tr_head">
             <th>ID</th>
             <th>이름</th>
             <th>주소</th>

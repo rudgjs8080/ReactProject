@@ -13,7 +13,6 @@ function App() {
   });
   const [a_list, setA_list] = useState([]);
 
-  // console.log("app", list);
   const args = { address, setAddress, a_list, setA_list };
   return (
     <div className="App">

@@ -77,6 +77,20 @@ div.main_view table {
   width: 60%;
   margin: 0 auto;
 }
-div.main_view tr {
-  border: 1px solid #ddd;
+
+div.main_view th {
+  padding: 10px;
+}
+div.main_view td {
+  border-bottom: 1px solid #ccc;
+  padding: 15px;
+  margin: 15px;
+}
+tr.tr_head {
+  background-color: #ccc;
+}
+
+tr.tr_body:hover {
+  background-color: aqua;
+  cursor: pointer;
 }

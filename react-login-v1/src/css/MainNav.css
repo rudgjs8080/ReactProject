@@ -1,0 +1,18 @@
+div.nav_box {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 8vh;
+  background-color: green;
+  color: white;
+  font-size: 25px;
+}
+div.nav_box div {
+  width: 10%;
+  height: 50%;
+  margin: 10px;
+  padding: 10px;
+}
+div.nav_box div:nth-of-type(4) {
+  margin-left: auto;
+}

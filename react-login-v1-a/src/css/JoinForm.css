@@ -1,0 +1,13 @@
+div.join_box {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 30vh;
+}
+div.join_box input,
+div.join_box button {
+  width: 50%;
+  height: 15%;
+  margin: 15px auto;
+  padding: 10px;
+}
