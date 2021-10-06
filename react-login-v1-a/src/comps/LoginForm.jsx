@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "../css/LoginForm.css";
+import { useUserContext } from "../context/UserContextProvider";
 
 function LoginForm() {
+  const { setJoin } = useUserContext();
   const [account, setAccount] = useState({
     userid: "",
     password: "",
@@ -37,22 +39,23 @@ function LoginForm() {
     // if(res?.ok) -> res가 정상(null, undefined 가 아니면 .ok 속성을 검사하라)
     // null로 인한 오류를 방지하는 코드
     if (res?.ok) {
-      const user = await res.json();
+      const resultUser = await res.json();
 
       //const user = users.find((item) => {
       //  return item.userid === account.userid;
       //});
-      console.log("user", user);
-      if (!user) {
-        alert("ID 없음");
+      console.log("user", resultUser);
+      if (!resultUser?.userid) {
+        alert("존재하지 않는 ID 입니다");
         return;
       }
-      if (user.password !== account.password) {
-        console.log(`user: ${user.password} acc: ${account.password}`);
+      if (resultUser.password !== account.password) {
+        console.log(`user: ${resultUser.password} acc: ${account.password}`);
         alert("비번 오류");
         return;
       }
       alert("로그인 성공");
+      setJoin(resultUser);
     }
   };
   return (
