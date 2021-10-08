@@ -1,15 +1,16 @@
 import React, { useEffect } from "react";
-import { useHistory } from "react-router";
+import { useHistory } from "react-router-dom";
+import { useUserContext } from "../context/UserContextProvider";
 
-function ListForm() {
-  const { join, setJoin } = useUserContext();
+function BBs() {
+  const { user, setUser } = useUserContext();
   const history = useHistory();
 
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch("http://localhost:8080/users", {
         method: "POST",
-        header: {
+        headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "http://localhost:3000",
         },
@@ -17,13 +18,15 @@ function ListForm() {
       });
       const result = await res.json();
       console.log(result);
-      await setJoin(result);
+      await setUser(result);
     };
     fetchData();
   }, []);
-  if (!join.userid) {
+
+  if (!user.userid) {
     history.replace("/login");
   }
+
   return (
     <div>
       <h1>자유게시판</h1>
@@ -31,4 +34,4 @@ function ListForm() {
   );
 }
 
-export default ListForm;
+export default BBs;

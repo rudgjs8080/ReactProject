@@ -6,6 +6,7 @@ import JoinForm from "./JoinForm";
 import NoticeForm from "./NoticeForm";
 import ListForm from "./ListForm";
 import { useUserContext } from "../context/UserContextProvider";
+import LogoutForm from "./LogoutForm";
 
 function MainComp() {
   const { join, setJoin } = useUserContext();
@@ -36,6 +37,9 @@ function MainComp() {
       </Route>
       <Route path="/bbs" exact>
         <ListForm />
+      </Route>
+      <Route path="/logout" exact>
+        <LogoutForm />
       </Route>
     </MainNav>
   );
