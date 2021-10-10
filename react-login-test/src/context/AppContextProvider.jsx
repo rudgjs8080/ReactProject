@@ -1,3 +1,4 @@
+// todoList data 및 event function 관련 Provider
 import React, { createContext, useContext, useRef, useState } from "react";
 const AppContext = createContext();
 
@@ -48,6 +49,7 @@ function AppContextProvider({ children }) {
       todoReset();
     }
   };
+
   const onCompClick = (e) => {
     const t_id = Number(e.target.dataset.todoId);
     const index = todoList.findIndex((todo) => todo.t_id === t_id);
@@ -75,5 +77,4 @@ function AppContextProvider({ children }) {
     <AppContext.Provider value={propsStore}>{children}</AppContext.Provider>
   );
 }
-
 export default AppContextProvider;

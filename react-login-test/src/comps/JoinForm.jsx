@@ -1,7 +1,5 @@
 import "../css/JoinForm.css";
-
 import React, { useState } from "react";
-
 function JoinForm() {
   const [joinUser, setJoinUser] = useState({
     userid: "",
@@ -9,7 +7,6 @@ function JoinForm() {
     re_password: "",
     email: "",
   });
-
   const onChangeAccount = (e) => {
     const { name, value } = e.target;
     setJoinUser({ ...joinUser, [name]: value });
@@ -21,17 +18,14 @@ function JoinForm() {
       alert("아이디를 입력해야 합니다");
       return;
     }
-
     if (!joinUser?.password) {
       alert("비밀번호를 입력해야 합니다");
       return;
     }
-
     if (!joinUser.re_password) {
       alert("비밀번호 확인을 입력해 주세요");
       return;
     }
-
     if (joinUser.password !== joinUser.re_password) {
       alert("비밀번호와 비밀번호 확인이 일치하지 않습니다");
       return;

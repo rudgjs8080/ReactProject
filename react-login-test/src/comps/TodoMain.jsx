@@ -7,6 +7,7 @@ function TodoMain() {
   return (
     <AppContextProvider>
       <div className="todo_main_layout">
+        <h1>TodoList</h1>
         <TodoInput />
         <TodoList />
       </div>

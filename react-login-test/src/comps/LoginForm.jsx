@@ -2,20 +2,16 @@ import "../css/LoginForm.css";
 import { useState } from "react";
 import { useUserContext } from "../context/UserContextProvider";
 import { useHistory } from "react-router-dom";
-
 function LoginForm() {
   const { setUser } = useUserContext();
   const [account, setAccount] = useState({
     userid: "",
     password: "",
   });
-
   const history = useHistory();
-
   const onChage = (e) => {
     setAccount({ ...account, [e.target.name]: e.target.value });
   };
-
   const onLogin = async (e) => {
     const res = await fetch("http://localhost:8080/users/login", {
       method: "POST",
@@ -43,14 +39,6 @@ function LoginForm() {
     }
     if (res?.ok) {
       const resultUser = await res.json();
-
-      console.log("userid", account.userid);
-
-      //const user = users.find((item) => {
-      //  return item.userid === account.userid;
-      //});
-
-      console.log("user", resultUser);
 
       if (!resultUser?.userid) {
         alert("없는 ID 입니다");

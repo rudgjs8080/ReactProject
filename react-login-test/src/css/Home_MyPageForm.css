@@ -1,0 +1,9 @@
+div.home_title,
+div.mainPage_title {
+  width: 30%;
+  border: 2px solid blue;
+  border-radius: 15px;
+  margin: 4rem auto;
+  padding: 1rem;
+  font-size: 2rem;
+}

@@ -7,6 +7,7 @@ import TodoMain from "./TodoMain";
 import { Route } from "react-router-dom";
 import { useUserContext } from "../context/UserContextProvider";
 import MyPage from "./MyPage";
+import HomeForm from "./HomeForm";
 
 function MainComp() {
   const { user, setUser } = useUserContext();
@@ -26,7 +27,7 @@ function MainComp() {
   return (
     <MainNav NavList={NavList}>
       <Route path="/" exact>
-        <div>로그인을 해주세요</div>
+        <HomeForm />
       </Route>
       <Route path="/todo" exact>
         {user?.userid ? <TodoMain /> : <div>로그인을 해주세요</div>}
